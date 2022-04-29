@@ -25,15 +25,15 @@ class ViewController: UIViewController {
         //rightBtn.addTarget(self, action: #selector(presentCalendarView), for: .touchUpInside)
         self.view.addSubview(rightBtn)
 
-//        rightBtn.rx.tap.subscribe(onNext: {[weak self] in
-//            self?.presentCalendarView()
-//        }, onError: {_ in}, onCompleted: {print("完成")}, onDisposed: {print("释放")}).disposed(by:bag)
+        rightBtn.rx.tap.subscribe(onNext: {[weak self] in
+            self?.presentCalendarView()
+        }, onError: {_ in}, onCompleted: {print("完成")}, onDisposed: {print("释放")}).disposed(by:bag)
         
         
-        _ = Observable<String>.create{(obserber) -> Disposable in
-            obserber.onNext("发送信号")
-            return Disposables.create()
-        }.subscribe(onNext: {str in print(str)}, onDisposed: {print("订阅释放")}).dispose()
+//        _ = Observable<String>.create{(obserber) -> Disposable in
+//            obserber.onNext("发送信号")
+//            return Disposables.create()
+//        }.subscribe(onNext: {str in print(str)}, onDisposed: {print("订阅释放")}).dispose()
     }
     
     @objc func presentCalendarView(){
